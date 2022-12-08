@@ -15,11 +15,6 @@ if (process.env.REPL_ID) {
     });
   });
 }
-esle(process.env.REPL_ID){
-  
-if (err.status === 429) {
-        exec("kill 1");
-      }
 client.build();
 
 module.exports = client; //;-;
