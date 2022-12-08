@@ -16,9 +16,7 @@ if (process.env.REPL_ID) {
   });
 }
 
-if
-
-=======
+else if 
 
 client.build();
 
