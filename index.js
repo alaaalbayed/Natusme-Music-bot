@@ -15,6 +15,13 @@ if (process.env.REPL_ID) {
     });
   });
 }
+else if (process.env.REPL_ID == false){
+   process.on("unhandledRejection", (reason, promise) => {
+    promise.catch((err) => {
+      if (err.status === 429) {
+        exec("kill 1");
+      }
+    });
 
 client.build();
 
