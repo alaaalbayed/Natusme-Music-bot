@@ -1,13 +1,22 @@
-module.exports = async (client) => {
-  (client.Ready = true),
-    client.user.setPresence({
-      status: client.botconfig.Presence.status, // You can show online, idle, and dnd
-      activity: {
-        name: client.botconfig.Presence.name,
-        type: client.botconfig.Presence.type,
-      },
-    });
-  client.Manager.init(client.user.id);
-  client.log("Successfully Logged in as " + client.user.tag); // You can change the text if you want, but DO NOT REMOVE "client.user.tag"
-  client.RegisterSlashCommands();
-};
+const { ActivityType } = require("discord.js");
+const client = require("../index");
+
+client.on("ready", async () => {
+
+
+  console.log(`${client.user.username} Is Online`);
+  client.user.setActivity({
+    name: `My Master Aizen#0005`,
+    type: ActivityType.Listening,
+  });
+
+  // loading database
+  await require("../handlers/Database")(client);
+
+  // loading dashboard
+  require("../server");
+
+  client.guilds.cache.forEach(async (guild) => {
+    await client.updateembed(client, guild);
+  });
+});

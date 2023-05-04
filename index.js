@@ -1,20 +1,25 @@
 require("dotenv").config();
-const DiscordMusicBot = require("./structures/DiscordMusicBot");
-const { exec } = require("child_process");
-const client = new DiscordMusicBot();
+const Aizen = require("./handlers/Client");
+const { TOKEN } = require("./settings/config");
 
-if (process.env.REPL_ID) {
-  console.log(
-    "Replit system detected, initiating special `unhandledRejection` event listener"
-  );
-  process.on("unhandledRejection", (reason, promise) => {
-    promise.catch((err) => {
-      if (err.status === 429) {
-        exec("kill 1");
-      }
-    });
-  });
-}
-client.build();
+const client = new Aizen();
 
-module.exports = client; //;-;
+module.exports = client;
+
+client.start(TOKEN);
+
+
+process.on("unhandledRejection", (reason, p) => {
+  console.log(" [Error_Handling] :: Unhandled Rejection/Catch");
+  console.log(reason, p);
+});
+
+process.on("uncaughtException", (err, origin) => {
+  console.log(" [Error_Handling] :: Uncaught Exception/Catch");
+  console.log(err, origin);
+});
+
+process.on("uncaughtExceptionMonitor", (err, origin) => {
+  console.log(" [Error_Handling] :: Uncaught Exception/Catch (MONITOR)");
+  console.log(err, origin);
+});
