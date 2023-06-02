@@ -64,7 +64,7 @@ GUILD_ID=
 
 ## Music Bot Dashboard Setup
 
-[Click Here](https://github.com/kabirsingh2004/JUGNU-Dashboard/blob/main/README.md)
+[Click Here](https://github.com/alaaalbayed/Natusme-Music-bot/edit/main/README.md)
 
 ## Feedback
 
