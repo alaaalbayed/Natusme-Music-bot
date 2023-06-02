@@ -64,7 +64,7 @@ GUILD_ID=
 
 ## Music Bot Dashboard Setup
 
-[Click Here](https://github.com/alaaalbayed/Natusme-Music-bot/edit/main/README.md)
+[Click Here](https://github.com/alaaalbayed/Natusme-Music-bot/blob/main/README.md)
 
 ## Feedback
 
